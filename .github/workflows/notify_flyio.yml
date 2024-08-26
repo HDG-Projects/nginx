@@ -18,8 +18,8 @@ jobs:
         uses: superfly/flyctl-actions/setup-flyctl@master  # Sử dụng action của Fly.io để cài đặt Flyctl
 
       - name: Deploy updates to Fly.io
-        run: |
-          # Kết nối vào ứng dụng Fly.io qua SSH và thực hiện script cập nhật
-          fly ssh console -a $FLY_APP_NAME --command "bash /fly/update_nginx_files.sh"
         env:
           FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
+          FLY_SSH_COMMAND: ${{ secrets.FLY_SSH_COMMAND }}
+      - run: |
+          $FLY_SSH_COMMAND
