@@ -21,5 +21,5 @@ jobs:
         env:
           FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
           FLY_SSH_COMMAND: ${{ secrets.FLY_SSH_COMMAND }}
-        run: |
+      - run: |
           $FLY_SSH_COMMAND
